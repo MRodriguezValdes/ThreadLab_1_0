@@ -115,7 +115,7 @@ public class Results extends JPanel {
         this.add(numberOfPendingProducerThreads, c);
         c.gridy++;
         c.gridx = 2;
-        this.add(numberOfProcessingConsumerThreads,c);
+        this.add(lNumberOfProcessingConsumerThreads,c);
         c.gridx = 3;
         this.add(numberOfProcessingConsumerThreads, c);
         c.gridy++;
