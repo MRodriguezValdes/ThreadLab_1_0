@@ -12,15 +12,14 @@ public class Settings extends JPanel {
         this.parameters = new Parameters(new JTextField("Producers"), new JTextField("Item By Producers"), new JCheckBox("Production time random fixed"), new JCheckBox("Max time production"),
                 new JTextField("Customer"), new JTextField("Item consumed by customer"), new JCheckBox("Consume time random fixed"), new JCheckBox("max consume time"),new JSlider(),new JSlider(),new JSlider(),new JSlider());
 
-
         this.configureSettingPanel();
     }
 
     private void configureSettingPanel() {
         // Configuring panel layout
         this.setLayout(new GridBagLayout());
-
         //
+
         GridBagConstraints c = new GridBagConstraints();
 
         c.fill = GridBagConstraints.HORIZONTAL;
