@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class Controls extends JPanel {
+public class ControlPanel extends JPanel {
 
     JToggleButton playPause;
     JButton Reset;
@@ -10,7 +10,7 @@ public class Controls extends JPanel {
     JButton positiveStock;
 
 
-    public Controls(JToggleButton playPause, JButton reset, JButton regionProtection, JButton positiveStock) {
+    public ControlPanel(JToggleButton playPause, JButton reset, JButton regionProtection, JButton positiveStock) {
         this.playPause = playPause;
         this.Reset = reset;
         this.regionProtection = regionProtection;

@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class Parameters extends JPanel {
+public class GeneralConfigurations extends JPanel {
     JTextField producers;
     JTextField itemByProducers;
     JCheckBox productionTimeRandomFixed;
@@ -18,9 +18,9 @@ public class Parameters extends JPanel {
     JSlider adjustMaxConsumeTime;
 
 
-    public Parameters(JTextField producers, JTextField itemByProducers, JCheckBox productionTimeRandomFixed, JCheckBox maxTimeProduction,
-                      JTextField customers, JTextField itemConsumedByCustomer, JCheckBox consumeTimeRandomFixed, JCheckBox maxConsumeTime,
-                      JSlider adjustProductionTime, JSlider adjustMaxProductionTime ,JSlider adjustConsumeTime, JSlider adjustMaxConsumeTime) {
+    public GeneralConfigurations(JTextField producers, JTextField itemByProducers, JCheckBox productionTimeRandomFixed, JCheckBox maxTimeProduction,
+                                 JTextField customers, JTextField itemConsumedByCustomer, JCheckBox consumeTimeRandomFixed, JCheckBox maxConsumeTime,
+                                 JSlider adjustProductionTime, JSlider adjustMaxProductionTime , JSlider adjustConsumeTime, JSlider adjustMaxConsumeTime) {
         this.producers = producers;
         this.itemByProducers = itemByProducers;
         this.productionTimeRandomFixed = productionTimeRandomFixed;

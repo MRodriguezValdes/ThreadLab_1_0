@@ -2,14 +2,14 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Settings extends JPanel {
-    Controls controls;
-    Parameters parameters;
+    ControlPanel controls;
+    GeneralConfigurations parameters;
 
 
     public Settings() {
 
-        this.controls = new Controls(new JToggleButton("Play"), new JButton("Reset"), new JButton("Region Protection"), new JButton("Positive Stock"));
-        this.parameters = new Parameters(new JTextField("Producers"), new JTextField("Item By Producers"), new JCheckBox("Production time random fixed"), new JCheckBox("Max time production"),
+        this.controls = new ControlPanel(new JToggleButton("Play"), new JButton("Reset"), new JButton("Region Protection"), new JButton("Positive Stock"));
+        this.parameters = new GeneralConfigurations(new JTextField("Producers"), new JTextField("Item By Producers"), new JCheckBox("Production time random fixed"), new JCheckBox("Max time production"),
                 new JTextField("Customer"), new JTextField("Item consumed by customer"), new JCheckBox("Consume time random fixed"), new JCheckBox("max consume time"),new JSlider(),new JSlider(),new JSlider(),new JSlider());
 
         this.configureSettingPanel();

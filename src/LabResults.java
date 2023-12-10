@@ -1,4 +1,4 @@
-public class ResultsDTO {
+public class LabResults {
     double msecToCreateThreadObjects = 0.0;
     double msecToStartThreads = 0.0;
     double msecForConsumerThreadsProcessing = 0.0;

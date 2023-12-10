@@ -1,17 +1,21 @@
 import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class View extends JFrame implements Runnable {
+public class TJTLView extends JFrame implements Runnable, ActionListener, ChangeListener  {
     JPanel mainPanel;
     Settings settings;
 
-    Results results;
+    ResultsViewer results;
 
-    public View() throws HeadlessException {
+    public TJTLView() throws HeadlessException {
 
         this.mainPanel = new JPanel();
         this.settings = new Settings();
-        this.results = new Results(new JTextField("0"), new JTextField("0"), new JTextField("0"), new JTextField("0"), new JTextField("0"), new JTextField("0"),
+        this.results = new ResultsViewer(new JTextField("0"), new JTextField("0"), new JTextField("0"), new JTextField("0"), new JTextField("0"), new JTextField("0"),
                 new JTextField("0"), new JTextField("0"), new JTextField("0"), new JTextField("0"), new JTextField("0"), new JTextField("0"));
         // Configuring main panel
         this.configureMainPanel();
@@ -73,5 +77,15 @@ public class View extends JFrame implements Runnable {
     @Override
     public void run() {
         //todo:Logic for update data into the JTextFields
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+
+    }
+
+    @Override
+    public void stateChanged(ChangeEvent e) {
+
     }
 }

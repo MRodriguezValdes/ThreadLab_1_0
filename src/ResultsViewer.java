@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class Results extends JPanel {
+public class ResultsViewer extends JPanel {
 
     JTextField msecToCreateThreadObjects;
     JTextField msecToStartThreads;
@@ -16,7 +16,7 @@ public class Results extends JPanel {
     JTextField numberOfFinishedConsumerThreads;
     JTextField numberOfPendingConsumerThreads;
 
-    public Results(JTextField msecToCreateThreadObjects, JTextField msecToStartThreads, JTextField msecForConsumerThreadsProcessing, JTextField msecForProducerThreadsProcessing, JTextField itemsProducedByEachProducer, JTextField itemsConsumedByEachConsumer, JTextField numberOfProcessingProducerThreads, JTextField numberOfFinishedProducerThreads, JTextField numberOfPendingProducerThreads, JTextField numberOfProcessingConsumerThreads, JTextField numberOfFinishedConsumerThreads, JTextField numberOfPendingConsumerThreads) {
+    public ResultsViewer(JTextField msecToCreateThreadObjects, JTextField msecToStartThreads, JTextField msecForConsumerThreadsProcessing, JTextField msecForProducerThreadsProcessing, JTextField itemsProducedByEachProducer, JTextField itemsConsumedByEachConsumer, JTextField numberOfProcessingProducerThreads, JTextField numberOfFinishedProducerThreads, JTextField numberOfPendingProducerThreads, JTextField numberOfProcessingConsumerThreads, JTextField numberOfFinishedConsumerThreads, JTextField numberOfPendingConsumerThreads) {
         this.msecToCreateThreadObjects = msecToCreateThreadObjects;
         this.msecToStartThreads = msecToStartThreads;
         this.msecForConsumerThreadsProcessing = msecForConsumerThreadsProcessing;
