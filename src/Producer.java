@@ -28,7 +28,6 @@ public class Producer implements Runnable {
 
         this.startTime = System.currentTimeMillis();
         this.labResults.numberOfProcessingProducerThreads++;
-        this.controller.addActiveProducerThread(Thread.currentThread());
         for (int i = 0; i < this.producedQuantity; i++) {
             this.product.produce(this.sync, positiveStock);
             labResults.itemsProducedByEachProducer++;
@@ -41,8 +40,7 @@ public class Producer implements Runnable {
         this.endTime = System.currentTimeMillis() - startTime;
         this.labResults.numberOfFinishedProducerThreads++;
         this.labResults.numberOfProcessingProducerThreads--;
-        this.controller.removeActiveProducerThread(Thread.currentThread());
-        this.labResults.numberOfPendingProducerThreads=this.controller.getActiveProducerThreadCount();
+        this.labResults.numberOfPendingProducerThreads --;
     }
 
     public long getStartTime() {

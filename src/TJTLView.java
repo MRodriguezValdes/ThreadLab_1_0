@@ -123,7 +123,6 @@ public class TJTLView extends JFrame implements Runnable, ActionListener, Change
                 }
             }
         });
-
     }
 
     private void configureMainPanel() {
@@ -224,11 +223,15 @@ public class TJTLView extends JFrame implements Runnable, ActionListener, Change
         switch (str) {
             case "Play":
                 this.resetStatistics();
+                this.controller.labParameters.producers=Integer.parseInt(this.settings.parameters.producers.getText());
+                this.controller.labParameters.itemByProducers=Integer.parseInt(this.settings.parameters.itemByProducers.getText());
+                this.controller.labParameters.consumers=Integer.parseInt(this.settings.parameters.consumers.getText());
+                this.controller.labParameters.itemConsumedByConsumers=Integer.parseInt(this.settings.parameters.itemConsumedByConsumers.getText());
                 this.controller.play();
                 break;
             case "Reset":
-                this.controller.stopActiveThreads();
                 this.controller.model.resetLabResults();
+                this.controller.model.resetConfig();
                 this.setDefaultValues();
                 this.resetStatistics();
                 break;

@@ -13,7 +13,7 @@ public class Consumer implements Runnable {
         this.product = product;
         this.sync = labParameters.regionProtection;
         this.consumedQuantity = labParameters.itemConsumedByConsumers;
-        this.timeToSleep = labParameters.maxConsumeTime;
+        this.timeToSleep = labParameters.consumeTime;
         this.positiveStock = labParameters.positiveStock;
         this.labResults = controller.getLabResults();
         this.controller = controller;
@@ -27,7 +27,6 @@ public class Consumer implements Runnable {
     @Override
     public void run() {
         this.startTime = System.currentTimeMillis();
-        this.controller.addActiveConsumerThread(Thread.currentThread());
         this.labResults.numberOfProcessingConsumerThreads++;
         for (int i = 0; i < this.consumedQuantity; i++) {
             this.product.consume(this.sync, positiveStock);
@@ -42,10 +41,8 @@ public class Consumer implements Runnable {
         this.endTime = System.currentTimeMillis() - startTime;
         this.labResults.numberOfProcessingConsumerThreads--;
         this.labResults.numberOfFinishedConsumerThreads++;
-        this.controller.removeActiveConsumerThread(Thread.currentThread());
-        this.labResults.numberOfPendingConsumerThreads= this.controller.getActiveConsumerThreadCount();
+        this.labResults.numberOfPendingConsumerThreads -- ;
     }
-
     public long getStartTime() {
         return startTime;
     }

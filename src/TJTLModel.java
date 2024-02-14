@@ -15,8 +15,9 @@ public class TJTLModel {
     }
 
     public void play() {
-        this.controller.stopActiveThreads();
         this.resetLabResults();
+        this.labResults.numberOfPendingProducerThreads = actualConfig.producers;
+        this.labResults.numberOfPendingConsumerThreads = actualConfig.consumers;
         long startCreatingObjectsTime = System.currentTimeMillis();
         consumers = new Thread[actualConfig.consumers];
         producers = new Thread[actualConfig.producers];
@@ -33,18 +34,6 @@ public class TJTLModel {
 
         long endCreatingObjectsTime = System.currentTimeMillis();
         labResults.msecToCreateThreadObjects = endCreatingObjectsTime - startCreatingObjectsTime;
-//        try {
-//            for (Thread consumer : consumers) {
-//                consumer.join();
-//            }
-//            for (Thread producer : producers) {
-//                producer.join();
-//            }
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
-
-        labResults.msecToStartThreads = System.currentTimeMillis() - endCreatingObjectsTime;
     }
 
     public void resetConfig() {
