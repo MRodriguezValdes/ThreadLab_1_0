@@ -1,22 +1,22 @@
-import java.util.Random;
-
 public class Producer implements Runnable {
+    Product product;
+    LabResults labResults;
+    TJTLController controller;
     private long startTime;
     private long endTime;
     private boolean sync;
     private int producedQuantity;
-
     private int timeToSleep;
-
     private Boolean positiveStock;
-    Product product;
 
-    public Producer(Product product, LabParameters labParameters) {
+    public Producer(Product product, LabParameters labParameters, TJTLController controller) {
         this.producedQuantity = labParameters.itemByProducers;
         this.product = product;
         this.sync = labParameters.regionProtection;
-        this.timeToSleep = labParameters.maxProductionTime;
+        this.timeToSleep = labParameters.productionTime;
         this.positiveStock = labParameters.positiveStock;
+        this.labResults = controller.getLabResults();
+        this.controller = controller;
     }
 
     public void setThread() {
@@ -27,9 +27,11 @@ public class Producer implements Runnable {
     public void run() {
 
         this.startTime = System.currentTimeMillis();
+        this.labResults.numberOfProcessingProducerThreads++;
+        this.controller.addActiveProducerThread(Thread.currentThread());
         for (int i = 0; i < this.producedQuantity; i++) {
-            this.product.produce(this.sync,positiveStock);
-
+            this.product.produce(this.sync, positiveStock);
+            labResults.itemsProducedByEachProducer++;
             try {
                 Thread.sleep(timeToSleep);
             } catch (InterruptedException e) {
@@ -37,6 +39,10 @@ public class Producer implements Runnable {
             }
         }
         this.endTime = System.currentTimeMillis() - startTime;
+        this.labResults.numberOfFinishedProducerThreads++;
+        this.labResults.numberOfProcessingProducerThreads--;
+        this.controller.removeActiveProducerThread(Thread.currentThread());
+        this.labResults.numberOfPendingProducerThreads=this.controller.getActiveProducerThreadCount();
     }
 
     public long getStartTime() {

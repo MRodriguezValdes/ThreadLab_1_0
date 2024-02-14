@@ -10,8 +10,8 @@ public class GeneralConfigurations extends JPanel {
     JSlider  adjustMaxProductionTime;
 
 
-    JTextField customers;
-    JTextField itemConsumedByCustomer;
+    JTextField consumers;
+    JTextField itemConsumedByConsumers;
     JCheckBox consumeTimeRandomFixed;
     JSlider adjustConsumeTime;
     JCheckBox maxConsumeTime;
@@ -27,8 +27,8 @@ public class GeneralConfigurations extends JPanel {
         this.adjustProductionTime=adjustProductionTime;
         this.maxProductionTime = maxTimeProduction;
         this.adjustMaxProductionTime=adjustMaxProductionTime;
-        this.customers = customers;
-        this.itemConsumedByCustomer = itemConsumedByCustomer;
+        this.consumers = customers;
+        this.itemConsumedByConsumers = itemConsumedByCustomer;
         this.consumeTimeRandomFixed = consumeTimeRandomFixed;
         this.adjustConsumeTime = adjustConsumeTime;
         this.maxConsumeTime = maxConsumeTime;
@@ -68,9 +68,9 @@ public class GeneralConfigurations extends JPanel {
         //2 column
         c.gridy = 0;
         c.gridx = 1;
-        this.add(this.customers,c);
+        this.add(this.consumers,c);
         c.gridy++;
-        this.add(this.itemConsumedByCustomer,c);
+        this.add(this.itemConsumedByConsumers,c);
         c.gridy++;
         this.add(consumeTimeRandomFixed,c);
         c.gridy++;
